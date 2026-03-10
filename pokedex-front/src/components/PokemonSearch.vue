@@ -9,6 +9,13 @@
     <ul>
         <li v-for="pokemon in results" :key="pokemon.name">
 
+        <img
+            :src="getImage(pokemon.url)"
+            width="50"
+            @error="setDefault"
+
+        />
+
         {{ pokemon.name }}
 
         </li>
@@ -36,4 +43,16 @@ async function search(){
   results.value = data
 }
 
+function getImage(url){
+
+  const parts = url.split('/')
+  const id = parts[parts.length - 2]
+
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+
+}
+
+function setDefault(event){
+  event.target.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png'
+}
 </script>
