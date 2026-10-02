@@ -29,10 +29,14 @@ export function getPokemonList({ search = '', type = '', page = 1, perPage = 24 
 export function getPokemonTypes(options = {}) {
   if (useDirectPokeApi) {
     return request(`${POKEAPI_BASE}/type`, options)
-      .then((payload) => ({ data: payload.results }))
+      .then((payload) => ({ data: payload.results.filter(({ name }) => name !== 'unknown') }))
   }
 
   return request(`${API_BASE}/types`, options)
+    .then((payload) => ({
+      ...payload,
+      data: payload.data.filter(({ name }) => name !== 'unknown'),
+    }))
 }
 
 export async function getPokemonDetails(identifier) {
