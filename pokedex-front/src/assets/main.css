@@ -68,7 +68,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .search-field kbd { color: #9b9c95; font-family: var(--mono); font-size: 11px; }
 .filter-field { position: relative; width: 185px; padding: 0 12px; }
 .filter-field select { width: 100%; height: 100%; appearance: none; border: 0; outline: 0; background: transparent; color: #53564f; font-size: 12px; cursor: pointer; }
-.select-arrow { position: absolute; right: 12px; color: var(--muted); pointer-events: none; }
+.select-arrow { position: absolute; top: 50%; right: 14px; width: 7px; height: 7px; transform: translateY(-65%) rotate(45deg); border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); pointer-events: none; }
 .result-count { margin: 0 0 0 auto; color: #898c84; font-size: 9px; letter-spacing: .6px; }
 .result-count span { margin-right: 8px; color: var(--ink); font-size: 12px; }
 

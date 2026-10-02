@@ -170,7 +170,7 @@ onBeforeUnmount(() => {
             <option value="">Todos os tipos</option>
             <option v-for="type in types" :key="type.name" :value="type.name">{{ formatName(type.name) }}</option>
           </select>
-          <span class="select-arrow" aria-hidden="true">⌄</span>
+          <span class="select-arrow" aria-hidden="true"></span>
         </label>
         <p class="result-count" aria-live="polite">
           <span>{{ loading ? '···' : String(pagination.total).padStart(3, '0') }}</span> RESULTADOS
