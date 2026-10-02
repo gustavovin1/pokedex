@@ -28,7 +28,8 @@ export function getPokemonList({ search = '', type = '', page = 1, perPage = 24 
 
 export function getPokemonTypes(options = {}) {
   if (useDirectPokeApi) {
-    return request(`${POKEAPI_BASE}/type`, options).then((payload) => payload.results)
+    return request(`${POKEAPI_BASE}/type`, options)
+      .then((payload) => ({ data: payload.results }))
   }
 
   return request(`${API_BASE}/types`, options)
