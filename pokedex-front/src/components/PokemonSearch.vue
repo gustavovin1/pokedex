@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import PokemonTypeBadge from './PokemonTypeBadge.vue'
 import { getPokemonDetails, getPokemonList, getPokemonTypes } from '../services/pokemonApi'
 
 const search = ref('')
@@ -38,10 +39,6 @@ function formatName(name = '') {
 
 function formatNumber(id) {
   return `#${String(id).padStart(4, '0')}`
-}
-
-function typeClass(type) {
-  return `type-${type}`
 }
 
 function imageFor(item, artwork = false) {
@@ -204,7 +201,7 @@ onBeforeUnmount(() => {
           <span class="card-info">
             <span class="card-name">{{ formatName(item.name) }}</span>
             <span class="type-list">
-              <span v-for="type in item.types" :key="type" class="type-badge" :class="typeClass(type)">{{ formatName(type) }}</span>
+              <PokemonTypeBadge v-for="type in item.types" :key="type" :type="type" />
             </span>
           </span>
           <span class="card-arrow" aria-hidden="true">↗</span>
@@ -251,7 +248,7 @@ onBeforeUnmount(() => {
             <p class="eyebrow"><span>SPECIMEN</span> {{ formatNumber(selectedPokemon.id) }}</p>
             <h2>{{ formatName(selectedPokemon.name) }}</h2>
             <div class="type-list modal-types">
-              <span v-for="type in selectedPokemon.types" :key="type" class="type-badge" :class="typeClass(type)">{{ formatName(type) }}</span>
+              <PokemonTypeBadge v-for="type in selectedPokemon.types" :key="type" :type="type" />
             </div>
             <p v-if="detailError" class="detail-error" role="alert">{{ detailError }}</p>
             <div v-if="detailLoading" class="detail-loading" role="status">Carregando dados...</div>

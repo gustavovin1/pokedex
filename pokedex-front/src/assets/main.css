@@ -85,7 +85,8 @@ button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible
 .card-info { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-top: 11px; }
 .card-name { overflow: hidden; color: var(--ink); font-size: 14px; font-weight: 700; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
 .type-list { display: flex; flex-wrap: wrap; gap: 5px; }
-.type-badge { display: inline-flex; min-height: 19px; align-items: center; padding: 2px 7px; border-radius: 2px; background: #e9eae4; color: #55584f; font-family: var(--mono); font-size: 8px; line-height: 1.2; text-transform: uppercase; }
+.type-badge { display: inline-flex; min-height: 19px; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 2px; background: #e9eae4; color: #55584f; font-family: var(--mono); font-size: 8px; line-height: 1.2; text-transform: uppercase; }
+.type-badge svg { flex: 0 0 auto; }
 .card-info .type-list { justify-content: flex-end; }
 .card-arrow { position: absolute; top: 11px; right: 12px; color: #a3a59d; font-size: 13px; opacity: 0; transition: opacity .2s ease; }
 .pokemon-card:hover .card-arrow, .pokemon-card:focus-visible .card-arrow { opacity: 1; }
